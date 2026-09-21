@@ -250,9 +250,10 @@ export const site = {
   donate: {
     intro:
       "Rensselaer Motorsport is a student-funded team — every donation goes directly toward materials, manufacturing, and competition travel.",
-    // Paste your donation processor link here (e.g. an RPI giving page or a Stripe/PayPal link).
-    // Leave blank and the donate page will show a clearly labeled placeholder instead.
-    url: "",
+    // RPI's official giving portal. Verify this is still the correct fund/URL before relying on it.
+    url: "https://giving.rpi.edu/",
+    instructions:
+      "When you give through the Rensselaer giving site, use the comments/designation field at checkout and write \"Rensselaer Motorsport\" (RPI Formula SAE) so your gift is directed to our team.",
   },
 
   about: {
@@ -328,7 +329,7 @@ export const site = {
 
   team: [
     {
-      name: "Executive Board",
+      name: "Executive Leadership",
       eyebrow: "Leadership",
       members: [
         {
@@ -657,63 +658,135 @@ export const site = {
       tier: "Title",
       sponsors: [
         { name: "Hondata", logo: "", url: "https://www.hondata.com/" },
-        { name: "Dana", logo: "", url: "https://www.dana.com/" },
-        { name: "BAE Systems", logo: "", url: "https://www.baesystems.com/" },
-        { name: "Markforged", logo: "", url: "https://markforged.com/" },
-        { name: "Fearless Racing", logo: "", url: "" },
+        { name: "Dana", logo: "/sponsors/dana.webp", url: "https://www.dana.com/" },
+        {
+          name: "BAE Systems",
+          logo: "/sponsors/bae systems.webp",
+          url: "https://www.baesystems.com/",
+        },
+        {
+          name: "Markforged",
+          logo: "/sponsors/markforged.webp",
+          url: "https://markforged.com/",
+        },
+        { name: "Fearless Racing", logo: "/sponsors/fearless racing.webp", url: "" },
         { name: "ANSYS", logo: "", url: "https://www.ansys.com/" },
       ],
     },
     {
       tier: "Level 3",
       sponsors: [
-        { name: "Ice Cutting Edge Metals", logo: "", url: "" },
-        { name: "Rapid Harness", logo: "", url: "" },
-        { name: "Griot's Garage", logo: "", url: "https://www.griotsgarage.com/" },
-        { name: "Beast Branch Engineering and Manufacturing", logo: "", url: "" },
-        { name: "NSH USA", logo: "", url: "" },
+        {
+          name: "Ice Cutting Edge Metals",
+          logo: "/sponsors/ice cutting edge.webp",
+          url: "",
+        },
+        { name: "Rapid Harness", logo: "/sponsors/rapidharness.webp", url: "" },
+        {
+          name: "Griot's Garage",
+          logo: "/sponsors/griots garage.webp",
+          url: "https://www.griotsgarage.com/",
+        },
+        {
+          name: "Beast Branch Engineering and Manufacturing",
+          logo: "",
+          url: "",
+        },
+        { name: "NSH USA", logo: "/sponsors/nsh usa.webp", url: "" },
         { name: "Noel's CNC Manufacturing", logo: "", url: "" },
-        { name: "Kaman Composites", logo: "", url: "https://www.kaman.com/" },
-        { name: "Saint-Gobain", logo: "", url: "https://www.saint-gobain.com/" },
-        { name: "Tektronix", logo: "", url: "https://www.tek.com/" },
-        { name: "TI64 Titanium", logo: "", url: "" },
-        { name: "XCA Advanced Composites Design and Manufacturing", logo: "", url: "" },
-        { name: "Boeing", logo: "", url: "https://www.boeing.com/" },
+        {
+          name: "Kaman Composites",
+          logo: "/sponsors/kaman.webp",
+          url: "https://www.kaman.com/",
+        },
+        {
+          name: "Saint-Gobain",
+          logo: "/sponsors/saint gobain.webp",
+          url: "https://www.saint-gobain.com/",
+        },
+        { name: "Tektronix", logo: "/sponsors/tektronix.webp", url: "https://www.tek.com/" },
+        { name: "TI64 Titanium", logo: "/sponsors/ti64.webp", url: "" },
+        {
+          name: "XCA Advanced Composites Design and Manufacturing",
+          logo: "/sponsors/xca.webp",
+          url: "",
+        },
+        { name: "Boeing", logo: "/sponsors/boeing.webp", url: "https://www.boeing.com/" },
         { name: "Atlas Copco", logo: "", url: "https://www.atlascopco.com/" },
       ],
     },
     {
       tier: "Level 2",
       sponsors: [
-        { name: "Ducommun", logo: "", url: "https://www.ducommun.com/" },
-        { name: "AMGIO", logo: "", url: "" },
-        { name: "Acronis", logo: "", url: "https://www.acronis.com/" },
-        { name: "Axcel", logo: "", url: "" },
-        { name: "Oakwood Bible Church", logo: "", url: "" },
-        { name: "Lockheed Martin", logo: "", url: "https://www.lockheedmartin.com/" },
-        { name: "Cartesian", logo: "", url: "" },
-        { name: "Holley", logo: "", url: "https://www.holley.com/" },
+        { name: "Ducommun", logo: "/sponsors/ducommun.webp", url: "https://www.ducommun.com/" },
+        { name: "AMGIO", logo: "/sponsors/amgio.webp", url: "" },
+        { name: "Acronis", logo: "/sponsors/acronis.webp", url: "https://www.acronis.com/" },
+        { name: "Axcel", logo: "/sponsors/axcel.webp", url: "" },
+        {
+          name: "Oakwood Bible Church",
+          logo: "",
+          url: "",
+        },
+        {
+          name: "Lockheed Martin",
+          logo: "/sponsors/lockheed martin.webp",
+          url: "https://www.lockheedmartin.com/",
+        },
+        { name: "Cartesian", logo: "/sponsors/cartesian.webp", url: "" },
+        { name: "Holley", logo: "/sponsors/holley.webp", url: "https://www.holley.com/" },
         { name: "PMC Race Cars", logo: "", url: "" },
-        { name: "Powder Tech Custom Powder-Coated Finishes", logo: "", url: "" },
-        { name: "RBC Bearings", logo: "", url: "https://www.rbcbearings.com/" },
-        { name: "Sandvik Coromant", logo: "", url: "https://www.sandvik.coromant.com/" },
-        { name: "Gene Haas Foundation", logo: "", url: "https://www.genehaasfoundation.org/" },
-        { name: "SimScale", logo: "", url: "https://www.simscale.com/" },
-        { name: "Simpson", logo: "", url: "https://www.simpsonraceproducts.com/" },
-        { name: "Siemens", logo: "", url: "https://www.siemens.com/" },
-        { name: "SKF", logo: "", url: "https://www.skf.com/" },
-        { name: "SOLIDWORKS", logo: "", url: "https://www.solidworks.com/" },
-        { name: "VI-Grade", logo: "", url: "https://www.vi-grade.com/" },
+        {
+          name: "Powder Tech Custom Powder-Coated Finishes",
+          logo: "",
+          url: "",
+        },
+        {
+          name: "RBC Bearings",
+          logo: "/sponsors/rbc bearings.webp",
+          url: "https://www.rbcbearings.com/",
+        },
+        {
+          name: "Sandvik Coromant",
+          logo: "/sponsors/sandvik.webp",
+          url: "https://www.sandvik.coromant.com/",
+        },
+        {
+          name: "Gene Haas Foundation",
+          logo: "/sponsors/gene haas foundation.webp",
+          url: "https://www.genehaasfoundation.org/",
+        },
+        { name: "SimScale", logo: "/sponsors/simscale.webp", url: "https://www.simscale.com/" },
+        {
+          name: "Simpson",
+          logo: "/sponsors/simpson.webp",
+          url: "https://www.simpsonraceproducts.com/",
+        },
+        { name: "Siemens", logo: "/sponsors/siemens.webp", url: "https://www.siemens.com/" },
+        { name: "SKF", logo: "/sponsors/skf.webp", url: "https://www.skf.com/" },
+        {
+          name: "SOLIDWORKS",
+          logo: "/sponsors/solidworks.webp",
+          url: "https://www.solidworks.com/",
+        },
+        { name: "VI-Grade", logo: "/sponsors/vi-grade.webp", url: "https://www.vi-grade.com/" },
         { name: "About Energy", logo: "", url: "" },
       ],
     },
     {
       tier: "Level 1",
       sponsors: [
-        { name: "Rock Krawler Suspension", logo: "", url: "https://www.rockkrawler.com/" },
+        {
+          name: "Rock Krawler Suspension",
+          logo: "/sponsors/rock krawler.webp",
+          url: "https://www.rockkrawler.com/",
+        },
         { name: "ProSpeed RS683", logo: "", url: "" },
         { name: "Tilton", logo: "", url: "https://www.tiltonracing.com/" },
-        { name: "HGSI Harold G. Schaevitz Industries", logo: "", url: "" },
+        {
+          name: "HGSI Harold G. Schaevitz Industries",
+          logo: "/sponsors/hgsi.webp",
+          url: "",
+        },
       ],
     },
   ] satisfies SponsorTier[],

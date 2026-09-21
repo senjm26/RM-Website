@@ -110,12 +110,12 @@ export default function AboutPage() {
           {site.about.subsystems.map((subsystem) => (
             <div
               key={subsystem.name}
-              className="rounded-xl border border-brand-grey-100 bg-brand-white p-5 dark:border-brand-grey-800 dark:bg-brand-black"
+              className="rounded-xl border border-brand-grey-100 bg-brand-white p-5 shadow-sm dark:border-brand-grey-800 dark:bg-brand-black"
             >
-              <h3 className="text-sm font-bold uppercase tracking-wide text-brand-red">
+              <h3 className="text-base font-bold uppercase tracking-wide text-brand-red">
                 {subsystem.name}
               </h3>
-              <p className="mt-1.5 text-sm text-brand-grey-500">{subsystem.description}</p>
+              <p className="mt-2 text-sm text-brand-grey-700">{subsystem.description}</p>
             </div>
           ))}
         </div>

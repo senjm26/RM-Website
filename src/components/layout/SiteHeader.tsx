@@ -13,15 +13,7 @@ export function SiteHeader() {
             alt={site.meta.name}
             width={900}
             height={300}
-            className="h-9 w-auto dark:hidden"
-            priority
-          />
-          <Image
-            src={site.meta.logoDark}
-            alt={site.meta.name}
-            width={900}
-            height={300}
-            className="hidden h-9 w-auto dark:block"
+            className="h-12 w-auto sm:h-14"
             priority
           />
         </Link>

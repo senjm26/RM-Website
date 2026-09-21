@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/*
+ * This site has one designed theme (red/white/black), not a toggle-able
+ * light/dark scheme. Scope `dark:` to an explicit `.dark` class (which we
+ * never apply) so it never activates automatically from the visitor's OS
+ * color-scheme preference — that was causing white-on-white / invisible-text
+ * bugs across the header, footer, and contact page.
+ */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -40,16 +49,15 @@
   --color-brand-blue-dark: var(--color-brand-blue-dark);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: var(--color-brand-black);
-    --foreground: #f2f2f2;
-  }
+html {
+  overflow-x: hidden;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 @keyframes marquee {

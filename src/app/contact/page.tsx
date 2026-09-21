@@ -3,6 +3,7 @@ import { site } from "@/content/site";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { SocialIcon } from "@/components/ui/SocialIcon";
+import { ContactForm } from "@/components/sections/ContactForm";
 
 export const metadata: Metadata = {
   title: `Contact | ${site.meta.name}`,
@@ -75,6 +76,20 @@ export default function ContactPage() {
       </Section>
 
       <Section tone="grey">
+        <div className="mx-auto max-w-2xl">
+          <div className="mb-8 text-center">
+            <h2 className="text-2xl font-black uppercase tracking-tight text-brand-black sm:text-3xl dark:text-brand-white">
+              Send Us a Message
+            </h2>
+            <p className="mt-2 text-sm text-brand-grey-500">
+              Let us know whether you're interested in joining or looking to sponsor the team.
+            </p>
+          </div>
+          <ContactForm />
+        </div>
+      </Section>
+
+      <Section tone="white">
         <div className="mb-10 text-center">
           <p className="text-sm font-bold uppercase tracking-widest text-brand-red">Come By</p>
           <h2 className="mt-2 text-3xl font-black uppercase tracking-tight text-brand-black sm:text-4xl dark:text-brand-white">
@@ -85,7 +100,7 @@ export default function ContactPage() {
           {site.contact.meetings.map((meeting) => (
             <div
               key={meeting.title}
-              className="flex flex-col gap-3 border-t-4 border-brand-red bg-brand-white p-6 dark:bg-brand-black"
+              className="flex flex-col gap-3 border border-brand-grey-100 border-t-4 border-t-brand-red bg-brand-white p-6 shadow-sm dark:border-brand-grey-800 dark:bg-brand-black"
             >
               <p className="text-xs font-bold uppercase tracking-widest text-brand-red">
                 {meeting.day}

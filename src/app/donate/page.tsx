@@ -19,7 +19,7 @@ export default function DonatePage() {
       <Section tone="white">
         <div className="mx-auto flex max-w-xl flex-col items-center gap-6 text-center">
           {site.donate.url ? (
-            <Button href={site.donate.url} variant="primary">
+            <Button href={site.donate.url} variant="primary" className="rounded-full">
               Give Now
             </Button>
           ) : (
@@ -29,6 +29,13 @@ export default function DonatePage() {
               </span>
             </div>
           )}
+
+          {site.donate.instructions && (
+            <p className="rounded-lg bg-brand-grey-50 p-4 text-sm text-brand-grey-700 dark:bg-brand-grey-900 dark:text-brand-grey-300">
+              {site.donate.instructions}
+            </p>
+          )}
+
           <p className="text-sm text-brand-grey-500">
             Prefer to sponsor in-kind, or have questions about giving? Reach out at{" "}
             <a href={`mailto:${site.contact.email}`} className="text-brand-red hover:underline">

@@ -42,32 +42,6 @@ export default function TheCarPage() {
         </Section>
       )}
 
-      {car?.systems && car.systems.length > 0 && (
-        <Section tone="grey">
-          <div className="mb-10 text-center">
-            <p className="text-sm font-bold uppercase tracking-widest text-brand-red">
-              Under the Skin
-            </p>
-            <h2 className="mt-2 text-3xl font-black uppercase tracking-tight text-brand-black sm:text-4xl dark:text-brand-white">
-              Systems Breakdown
-            </h2>
-          </div>
-          <div className="grid gap-6 sm:grid-cols-2">
-            {car.systems.map((system) => (
-              <div
-                key={system.name}
-                className="border-t-4 border-brand-red bg-brand-white p-6 dark:bg-brand-black"
-              >
-                <h3 className="text-lg font-bold uppercase tracking-wide text-brand-black dark:text-brand-white">
-                  {system.name}
-                </h3>
-                <p className="mt-2 text-sm text-brand-grey-500">{system.description}</p>
-              </div>
-            ))}
-          </div>
-        </Section>
-      )}
-
       <Section tone="black">
         <h2 className="mb-8 text-2xl font-black uppercase tracking-tight text-brand-white">
           In the Shop

@@ -17,9 +17,6 @@ export function MasonryGallery({ items }: { items: GalleryItem[] }) {
             className="block h-auto w-full transition-transform duration-300 group-hover:scale-105"
             sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
           />
-          <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent p-3 pt-8 text-sm text-brand-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-            {item.caption}
-          </figcaption>
         </figure>
       ))}
     </div>

@@ -113,12 +113,6 @@ export interface ValueCard {
   description: string;
 }
 
-export interface SponsorBenefitTier {
-  name: string;
-  threshold: string;
-  logoOnCar: string;
-  perks: string[];
-}
 
 export interface Subsystem {
   name: string;
@@ -234,46 +228,18 @@ export const site = {
     label: "View Sponsor Packet",
   },
 
-  sponsorBenefitTiers: [
-    {
-      name: "Title Sponsor",
-      threshold: "$15,000+",
-      logoOnCar: "Large, all events",
-      perks: [
-        "Access to monthly newsletter",
-        "Logo on our website",
-        "Invitations to events",
-        "Logo on team merchandise",
-        "Access to student resume pool",
-        "Featured post on social media",
-        "PR day at Rensselaer Motorsport",
-      ],
-    },
-    {
-      name: "Gold",
-      threshold: "$10,000+",
-      logoOnCar: "Medium, all events",
-      perks: [
-        "Access to monthly newsletter",
-        "Logo on our website",
-        "Invitations to events",
-        "Logo on team merchandise",
-        "Access to student resume pool",
-      ],
-    },
-    {
-      name: "Silver",
-      threshold: "$5,000+",
-      logoOnCar: "Small, rollout only",
-      perks: ["Access to monthly newsletter", "Logo on our website"],
-    },
-    {
-      name: "Bronze",
-      threshold: "$1,000+",
-      logoOnCar: "Name only",
-      perks: [],
-    },
-  ] satisfies SponsorBenefitTier[],
+  whySponsor: {
+    intro:
+      "Building a competition race car would not be possible without the generosity of sponsors and partners like you. We accept cash donations as well as in-kind parts, materials, and tools — all cash donations are tax-deductible, as we are a 501(c)3 organization.",
+    benefits: [
+      "Logo placement on our race car and website",
+      "Invitations to team events and competitions",
+      "Logo on team merchandise",
+      "Access to our student engineering resume pool",
+      "Featured recognition on social media",
+      "Access to our monthly newsletter",
+    ],
+  },
 
   contact: {
     intro:
@@ -985,15 +951,12 @@ export const site = {
       {
         title: "Come to a Meeting",
         description:
-          "Join us at a weekly Tuesday engineering meeting, Wednesday general meeting, or stop by the shop on a Friday evening — see the full schedule on our Contact page.",
+          "Come to a weekly Tuesday engineering meeting, Wednesday general meeting, or stop by the shop on a Friday evening and chat with us — see the full schedule on our Contact page.",
       },
       {
-        title: "Pick a Subteam",
-        description: "Add a short description of how new members choose a subteam.",
-      },
-      {
-        title: "Start Building",
-        description: "Add a short description of how new members get hands-on right away.",
+        title: "Fill Out Our Interest Form",
+        description:
+          "Not on campus yet or can't make it to a meeting? Fill out our interest form and we'll follow up with next steps.",
       },
     ] satisfies JoinStep[],
     requirements: [

@@ -13,13 +13,13 @@ export default function JoinPage() {
     <>
       <Section tone="black" className="py-24">
         <h1 className="text-4xl font-black uppercase tracking-tight sm:text-5xl">
-          Join {site.meta.shortName}
+          Join {site.meta.name}
         </h1>
         <p className="mt-4 max-w-2xl text-brand-grey-300">{site.join.intro}</p>
       </Section>
 
       <Section tone="white">
-        <div className="grid gap-8 sm:grid-cols-3">
+        <div className="grid gap-8 sm:grid-cols-2">
           {site.join.steps.map((step, index) => (
             <div key={step.title}>
               <div className="text-4xl font-black text-brand-red">

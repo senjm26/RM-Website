@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/Button";
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-3 z-50 mx-3 mt-3 rounded-2xl border border-brand-grey-900 bg-brand-black shadow-lg shadow-black/30 sm:top-4 sm:mx-4 sm:mt-4">
+    <header className="sticky top-0 z-50 w-full border-b border-brand-grey-900 bg-brand-black shadow-lg shadow-black/30">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center">
           <Image

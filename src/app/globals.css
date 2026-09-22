@@ -10,8 +10,11 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Matches brand-black — every page opens with a dark hero/section, so this
+     is what shows through the gap and rounded corners around the floating
+     header, rather than a flash of white. */
+  --background: #0a0a0a;
+  --foreground: #ffffff;
 
   --color-brand-red: #c8102e;
   --color-brand-red-dark: #8f0b21;

@@ -43,9 +43,9 @@ const footerColumns = [
 export function SiteFooter() {
   return (
     <footer className="bg-brand-black text-brand-white">
-      <div className="mx-auto max-w-6xl px-6 py-16">
-        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
-          <div>
+      <div className="mx-auto max-w-6xl px-6 py-12 sm:py-16">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-12 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
+          <div className="col-span-2 lg:col-span-1">
             <Image
               src={site.meta.logoDark}
               alt={site.meta.name}
@@ -82,7 +82,10 @@ export function SiteFooter() {
           </div>
 
           {footerColumns.map((column) => (
-            <nav key={column.heading}>
+            <nav
+              key={column.heading}
+              className={column.heading === "Contact" ? "col-span-2 sm:col-span-1" : undefined}
+            >
               <h3 className="text-xs font-bold uppercase tracking-widest text-brand-grey-500">
                 {column.heading}
               </h3>

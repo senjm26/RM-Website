@@ -6,7 +6,7 @@ export function Hero() {
   const { hero } = site;
 
   return (
-    <div className="relative flex h-[100svh] min-h-[560px] items-start justify-center overflow-hidden bg-brand-black">
+    <div className="relative flex h-[85svh] min-h-[520px] items-start justify-center overflow-hidden bg-brand-black sm:h-[90svh] lg:h-[100svh]">
       <SiteImage
         src={hero.image.src}
         alt={hero.image.alt}

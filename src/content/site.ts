@@ -67,12 +67,6 @@ export interface CompetitionGoal {
   location: string;
 }
 
-export interface SeasonPhase {
-  window: string;
-  title: string;
-  description: string;
-}
-
 export interface Car {
   id: string;
   name: string;
@@ -85,7 +79,6 @@ export interface Car {
   features: string[];
   systems?: CarSystem[];
   goals?: CompetitionGoal[];
-  timeline?: SeasonPhase[];
 }
 
 export interface Sponsor {
@@ -370,7 +363,7 @@ export const site = {
   },
 
   stats: [
-    { label: "Cars Built", value: "—" },
+    { label: "Cars Built", value: "29" },
     { label: "Years Competing", value: "—" },
     { label: "Active Members", value: "32+" },
     { label: "Sponsors & Partners", value: "—" },
@@ -709,31 +702,6 @@ export const site = {
           location: "Michigan International Speedway",
         },
       ] satisfies CompetitionGoal[],
-      timeline: [
-        {
-          window: "July–November",
-          title: "Design",
-          description:
-            "Create a new car design based on data from previous years. Brainstorm, prototype, and model in SolidWorks.",
-        },
-        {
-          window: "December–February",
-          title: "Manufacture",
-          description:
-            "Bring the car from the computer into the real world. Weld the chassis, machine components, layup carbon fiber, solder PCBs, and more.",
-        },
-        {
-          window: "March–May",
-          title: "Test",
-          description: "Collect data and validate design choices, tuning the car for optimal performance.",
-        },
-        {
-          window: "June",
-          title: "Compete",
-          description:
-            "Prove the car's performance on the track against other teams, demonstrating engineering design, business operations, and production capabilities.",
-        },
-      ] satisfies SeasonPhase[],
     },
   ] satisfies Car[],
 

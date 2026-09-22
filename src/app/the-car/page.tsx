@@ -98,34 +98,6 @@ export default function TheCarPage() {
         </Section>
       )}
 
-      {car?.timeline && car.timeline.length > 0 && (
-        <Section tone="grey">
-          <div className="mb-10 text-center">
-            <h2 className="text-3xl font-black uppercase tracking-tight text-brand-black sm:text-4xl dark:text-brand-white">
-              {car.name} Timeline
-            </h2>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {car.timeline.map((phase) => (
-              <div
-                key={phase.title}
-                className="rounded-xl border border-brand-grey-100 bg-brand-white p-5 shadow-sm dark:border-brand-grey-800 dark:bg-brand-black"
-              >
-                <p className="text-xs font-semibold uppercase tracking-wide text-brand-grey-500">
-                  {phase.window}
-                </p>
-                <h3 className="mt-1 text-lg font-bold uppercase tracking-wide text-brand-red">
-                  {phase.title}
-                </h3>
-                <p className="mt-2 text-sm text-brand-grey-700 dark:text-brand-grey-300">
-                  {phase.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </Section>
-      )}
-
       <Section tone="black">
         <h2 className="mb-8 text-2xl font-black uppercase tracking-tight text-brand-white">
           In the Shop

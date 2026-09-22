@@ -12,9 +12,12 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   const sponsorCount = site.sponsors.reduce((sum, tier) => sum + tier.sponsors.length, 0);
-  const stats = site.stats.map((stat) =>
-    stat.label === "Sponsors & Partners" ? { ...stat, value: `${sponsorCount}+` } : stat,
-  );
+  const yearsCompeting = new Date().getFullYear() - site.about.foundingYear;
+  const stats = site.stats.map((stat) => {
+    if (stat.label === "Sponsors & Partners") return { ...stat, value: `${sponsorCount}+` };
+    if (stat.label === "Years Competing") return { ...stat, value: `${yearsCompeting}+` };
+    return stat;
+  });
 
   return (
     <>
@@ -129,6 +132,37 @@ export default function AboutPage() {
           <p className="mt-4 text-brand-grey-700 dark:text-brand-grey-300">
             {site.about.history}
           </p>
+        </div>
+      </Section>
+
+      <Section tone="grey">
+        <div className="mx-auto grid max-w-4xl gap-10 sm:grid-cols-2">
+          <div>
+            <h2 className="text-2xl font-black uppercase tracking-tight text-brand-black dark:text-brand-white">
+              Our Majors
+            </h2>
+            <ul className="mt-4 flex flex-col gap-2 text-sm text-brand-grey-700 dark:text-brand-grey-300">
+              {site.about.majors.map((major) => (
+                <li key={major}>{major}</li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h2 className="text-2xl font-black uppercase tracking-tight text-brand-black dark:text-brand-white">
+              Where We've Gone
+            </h2>
+            <p className="mt-2 text-sm text-brand-grey-500">Recent alumni destinations include:</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {site.about.alumniEmployers.map((employer) => (
+                <span
+                  key={employer}
+                  className="rounded-full border border-brand-grey-200 bg-brand-white px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-grey-700 dark:border-brand-grey-800 dark:bg-brand-black dark:text-brand-grey-300"
+                >
+                  {employer}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </Section>
     </>

@@ -47,8 +47,6 @@ export interface TeamMember {
 
 export interface Subteam {
   name: string;
-  /** Small category label shown above the section title, e.g. "Leadership". */
-  eyebrow: string;
   members: TeamMember[];
 }
 
@@ -59,6 +57,19 @@ export interface CarSpec {
 
 export interface CarSystem {
   name: string;
+  description: string;
+}
+
+export interface CompetitionGoal {
+  result: string;
+  competition: string;
+  date: string;
+  location: string;
+}
+
+export interface SeasonPhase {
+  window: string;
+  title: string;
   description: string;
 }
 
@@ -73,6 +84,8 @@ export interface Car {
   specs: CarSpec[];
   features: string[];
   systems?: CarSystem[];
+  goals?: CompetitionGoal[];
+  timeline?: SeasonPhase[];
 }
 
 export interface Sponsor {
@@ -98,6 +111,13 @@ export interface GalleryItem {
 export interface ValueCard {
   title: string;
   description: string;
+}
+
+export interface SponsorBenefitTier {
+  name: string;
+  threshold: string;
+  logoOnCar: string;
+  perks: string[];
 }
 
 export interface Subsystem {
@@ -214,6 +234,47 @@ export const site = {
     label: "View Sponsor Packet",
   },
 
+  sponsorBenefitTiers: [
+    {
+      name: "Title Sponsor",
+      threshold: "$15,000+",
+      logoOnCar: "Large, all events",
+      perks: [
+        "Access to monthly newsletter",
+        "Logo on our website",
+        "Invitations to events",
+        "Logo on team merchandise",
+        "Access to student resume pool",
+        "Featured post on social media",
+        "PR day at Rensselaer Motorsport",
+      ],
+    },
+    {
+      name: "Gold",
+      threshold: "$10,000+",
+      logoOnCar: "Medium, all events",
+      perks: [
+        "Access to monthly newsletter",
+        "Logo on our website",
+        "Invitations to events",
+        "Logo on team merchandise",
+        "Access to student resume pool",
+      ],
+    },
+    {
+      name: "Silver",
+      threshold: "$5,000+",
+      logoOnCar: "Small, rollout only",
+      perks: ["Access to monthly newsletter", "Logo on our website"],
+    },
+    {
+      name: "Bronze",
+      threshold: "$1,000+",
+      logoOnCar: "Name only",
+      perks: [],
+    },
+  ] satisfies SponsorBenefitTier[],
+
   contact: {
     intro:
       "Have a question, want to sponsor the team, or just want to say hello? Reach out — we'd love to hear from you.",
@@ -314,10 +375,32 @@ export const site = {
         description: "Budget, partnerships, and the cost/business competition events.",
       },
     ] satisfies Subsystem[],
-    // NOTE: we don't have verified sourcing for the team's founding year or specific
-    // competition milestones — replace the bracketed placeholders below with the real details.
+    foundingYear: 1992,
     history:
-      "Rensselaer Motorsport has represented RPI in SAE International's Formula SAE competition for [add founding year] years, with the team evolving over that time from an internal-combustion platform to today's electric race car. Add specific milestones, competition results, and notable alumni achievements here.",
+      "Rensselaer Motorsport has represented RPI in SAE International's Formula SAE competition since 1992, evolving over more than 30 years from an internal-combustion platform to today's electric race car. At the 2025 Formula Hybrid + Electric competition, the team placed 7th overall — 16th in design and 10th in business among static events, and 9th in acceleration, 6th in autocross, and 3rd in endurance among dynamic events. At FSAE Electric, the team finished 50th overall in 2025, 47th in 2024, and 42nd in 2023.",
+    majors: [
+      "Aeronautical Engineering",
+      "Computer Science",
+      "Computer Systems Engineering",
+      "Design, Innovation, and Society",
+      "Electrical Engineering",
+      "Materials Engineering",
+      "Mathematics",
+      "Mechanical Engineering",
+    ],
+    alumniEmployers: [
+      "Tesla",
+      "GM",
+      "Rivian",
+      "Ford",
+      "Haas",
+      "Honda Racing",
+      "Boeing",
+      "BAE Systems",
+      "SpaceX",
+      "Lockheed Martin",
+      "Amazon",
+    ],
   },
 
   stats: [
@@ -330,12 +413,11 @@ export const site = {
   team: [
     {
       name: "Executive Leadership",
-      eyebrow: "Leadership",
       members: [
         {
           name: "Cameron Quail",
           role: "Team Lead",
-          major: "Aeronautical/Aerospace Engineering / Mechanical Engineering",
+          major: "Aeronautical/Aerospace & Mechanical Engineering",
           gradYear: "2028",
           photo: "/Headshots/cam.jpg",
           linkedin: "https://www.linkedin.com/in/cameronquail/",
@@ -351,7 +433,7 @@ export const site = {
         {
           name: "Alexander Ethier",
           role: "EV Lead, High Voltage Lead",
-          major: "Electrical Engineering / Computer Science Engineering",
+          major: "Electrical & Computer Science Engineering",
           gradYear: "2028",
           photo: "/Headshots/alex e.jpg",
           linkedin: "https://www.linkedin.com/in/alexanderjethier/",
@@ -360,7 +442,6 @@ export const site = {
     },
     {
       name: "Subsystem Leads",
-      eyebrow: "The Leads",
       members: [
         {
           name: "Amalan Narashimman",
@@ -374,7 +455,7 @@ export const site = {
         {
           name: "Ben Dingman",
           role: "Business Lead",
-          major: "Design Innovation and Society / Communication, Media, and Design",
+          major: "Design Innovation and Society & Communication, Media, and Design",
           gradYear: "2028",
           photo: "/Headshots/ben.jpg",
           linkedin: "https://www.linkedin.com/in/benjamin-dingman-509570357/",
@@ -407,7 +488,7 @@ export const site = {
         {
           name: 'Jonathan "JB" Brooks',
           role: "Senior Chassis Lead",
-          major: "Mechanical Engineering / Design Innovation and Society",
+          major: "Mechanical Engineering & Design Innovation and Society",
           gradYear: "2028",
           photo: "/Headshots/jb.jpg",
           linkedin: "https://www.linkedin.com/in/jbooks06/",
@@ -425,7 +506,7 @@ export const site = {
           role: "CIO",
           major: "Mechanical Engineering",
           gradYear: "2027",
-          photo: "/Headshots/driver.jpg",
+          photo: "/Headshots/nick.jpg",
           linkedin: "https://www.linkedin.com/in/nicholas--cummings/",
         },
         {
@@ -439,7 +520,7 @@ export const site = {
         {
           name: "Zayd Farjo",
           role: "Senior Suspension Lead",
-          major: "Mechanical Engineering Undergrad, MBA Grad",
+          major: "Mechanical Engineering & Master of Business Administration",
           gradYear: "2026",
           photo: "/Headshots/zayd.jpg",
           linkedin: "https://www.linkedin.com/in/zayd-farjo-a2a983254/",
@@ -448,12 +529,11 @@ export const site = {
     },
     {
       name: "Junior Subsystem Leads",
-      eyebrow: "The Junior Leads",
       members: [
         {
           name: "Alexander Weiss",
           role: "Safety Officer, Junior Suspension Lead",
-          major: "Mechanical Engineering / Aeronautical/Aerospace Engineering",
+          major: "Aeronautical/Aerospace & Mechanical Engineering",
           gradYear: "2028",
           photo: "/Headshots/alex w.jpg",
           linkedin: "https://www.linkedin.com/in/alexander-weiss-ct/",
@@ -462,7 +542,7 @@ export const site = {
         {
           name: "Arfan Shikder",
           role: "Junior Chassis Lead",
-          major: "Civil Engineering",
+          major: "Mechanical Engineering",
           gradYear: "2029",
           photo: "/Headshots/arfan.jpg",
           linkedin: "https://www.linkedin.com/in/arfan-shikder-029b1a280/",
@@ -479,7 +559,6 @@ export const site = {
     },
     {
       name: "Full Members",
-      eyebrow: "The Team",
       members: [
         {
           name: "Joshua Levy",
@@ -490,7 +569,7 @@ export const site = {
         },
         {
           name: 'Zining "Grace" Yu',
-          major: "Mechanical Engineering / Aeronautical/Aerospace Engineering",
+          major: "Aeronautical/Aerospace & Mechanical Engineering",
           gradYear: "2026",
           photo: "/Headshots/driver.jpg",
           linkedin: "https://www.linkedin.com/in/grace-yu-00997a270/",
@@ -574,7 +653,7 @@ export const site = {
         },
         {
           name: "Maya Gorse",
-          major: "Mechanical Engineering / Design Innovation and Society",
+          major: "Mechanical Engineering & Design Innovation and Society",
           gradYear: "2027",
           photo: "/Headshots/maya.jpg",
           linkedin: "https://www.linkedin.com/in/maya-gorse/",
@@ -600,56 +679,95 @@ export const site = {
   cars: [
     {
       id: "current-car",
-      name: "Add Car Name (e.g. RM26)",
+      name: "RM29",
       year: "2026",
       category: "Formula SAE Electric",
-      tagline: "Add a one-line description of this year's car.",
+      tagline:
+        "RM29 is our most recent electric vehicle — built for the 2025–2026 competition season.",
       photo: "/rollout.jpg",
       heroPhoto: "/Gallery/cardriving2.jpg",
       specs: [
-        { label: "Powertrain", value: "—" },
-        { label: "Horsepower", value: "—" },
-        { label: "Weight", value: "—" },
-        { label: "0–60 mph", value: "—" },
-        { label: "Chassis", value: "—" },
+        { label: "Powertrain", value: "107 HP PMSM, 4000 RPM @ 400V" },
+        { label: "Horsepower", value: "107 HP" },
+        { label: "Weight", value: "490 lb (target)" },
+        { label: "0–60 mph", value: "3.5 sec (target)" },
+        { label: "Chassis", value: "4130 steel tube-frame" },
       ],
       features: [
-        "Add a notable design feature",
-        "Add a notable design feature",
-        "Add a notable design feature",
+        "Custom 80kW battery pack — 400V, 200A Li-Ion accumulator",
+        "Carbon fiber aero package (Cl = 2.0, Cd = 1.5)",
+        "Custom vehicle control unit built on an STM32F7 chip",
       ],
       systems: [
         {
           name: "Chassis",
           description:
-            "A tubular space-frame chassis engineered for stiffness and driver safety — add this year's construction details (material, wall thickness, torsional rigidity).",
+            "A 4130 steel tube-frame space-frame chassis optimized for the maximum torsional-rigidity-to-weight ratio.",
         },
         {
           name: "Suspension & Vehicle Dynamics",
           description:
-            "Custom double-wishbone suspension geometry tuned for autocross and skidpad performance — add ride, camber, and damper specifics.",
+            "Custom aluminum suspension components with CNC-machined uprights and hubs.",
         },
         {
           name: "Powertrain & Drivetrain",
           description:
-            "Electric powertrain delivering power from the motor(s) to the wheels — add motor, inverter, and gear reduction details.",
+            "A 107 HP permanent magnet synchronous traction motor running up to 4000 RPM at 400V.",
         },
         {
           name: "Tractive Battery & High Voltage",
           description:
-            "Custom-built accumulator and high-voltage system designed to competition safety rules — add pack voltage, capacity, and cell details.",
+            "A custom 80kW battery pack — a 400V, 200A Li-Ion accumulator designed and built in-house.",
         },
         {
           name: "Aerodynamics",
           description:
-            "Aero package designed for downforce and cooling — add wing, diffuser, and cooling duct details.",
+            "A carbon fiber aero package tuned to a coefficient of lift of 2.0 and coefficient of drag of 1.5.",
         },
         {
           name: "Electronics & Data",
-          description:
-            "Low-voltage electronics, sensors, and data acquisition for tuning and diagnostics — add ECU/telemetry details.",
+          description: "A custom vehicle control unit (VCU) built on an STM32F7 chip.",
         },
       ] satisfies CarSystem[],
+      goals: [
+        {
+          result: "Top 5",
+          competition: "Formula Hybrid + Electric",
+          date: "April 2026",
+          location: "New Hampshire Motor Speedway",
+        },
+        {
+          result: "Top 20",
+          competition: "FSAE EV",
+          date: "June 2026",
+          location: "Michigan International Speedway",
+        },
+      ] satisfies CompetitionGoal[],
+      timeline: [
+        {
+          window: "July–November",
+          title: "Design",
+          description:
+            "Create a new car design based on data from previous years. Brainstorm, prototype, and model in SolidWorks.",
+        },
+        {
+          window: "December–February",
+          title: "Manufacture",
+          description:
+            "Bring the car from the computer into the real world. Weld the chassis, machine components, layup carbon fiber, solder PCBs, and more.",
+        },
+        {
+          window: "March–May",
+          title: "Test",
+          description: "Collect data and validate design choices, tuning the car for optimal performance.",
+        },
+        {
+          window: "June",
+          title: "Compete",
+          description:
+            "Prove the car's performance on the track against other teams, demonstrating engineering design, business operations, and production capabilities.",
+        },
+      ] satisfies SeasonPhase[],
     },
   ] satisfies Car[],
 

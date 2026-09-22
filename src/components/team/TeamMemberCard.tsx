@@ -13,9 +13,9 @@ export function TeamMemberCard({ member }: { member: TeamMember }) {
 
   return (
     <div className="group [perspective:1200px]">
-      <div className="relative aspect-[3/4.5] w-full transition-transform duration-700 ease-in-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-        {/* Front */}
-        <div className="absolute inset-0 flex flex-col overflow-hidden rounded-2xl bg-brand-white shadow-sm ring-1 ring-brand-grey-100 [backface-visibility:hidden] [-webkit-backface-visibility:hidden] dark:bg-brand-grey-900 dark:ring-brand-grey-900">
+      <div className="relative w-full transition-transform duration-700 ease-in-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+        {/* Front — in normal flow, so its natural height (photo + a guaranteed-minimum text panel) sets the card's height for every same-width card */}
+        <div className="flex flex-col overflow-hidden rounded-2xl bg-brand-white shadow-sm ring-1 ring-brand-grey-100 [backface-visibility:hidden] [-webkit-backface-visibility:hidden] dark:bg-brand-grey-900 dark:ring-brand-grey-900">
           <div
             className="relative aspect-square w-full overflow-hidden bg-brand-grey-100 dark:bg-brand-grey-800"
             style={photoBg ? { backgroundColor: photoBg } : undefined}
@@ -43,7 +43,9 @@ export function TeamMemberCard({ member }: { member: TeamMember }) {
               }
             />
           </div>
-          <div className="flex flex-1 flex-col justify-center gap-1.5 px-4 py-3">
+          <div
+            className={`flex flex-col justify-start gap-1.5 px-4 py-3 ${roles.length > 0 ? "min-h-[9.5rem]" : "min-h-[6.5rem]"}`}
+          >
             <h3 className="text-lg font-bold leading-tight text-brand-black dark:text-brand-white">
               {member.name}
             </h3>
@@ -67,7 +69,7 @@ export function TeamMemberCard({ member }: { member: TeamMember }) {
           </div>
         </div>
 
-        {/* Back */}
+        {/* Back — absolutely positioned to exactly overlay the front's box */}
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 overflow-hidden rounded-2xl bg-brand-blue p-5 text-center shadow-sm [backface-visibility:hidden] [-webkit-backface-visibility:hidden] [transform:rotateY(180deg)]">
           <h3 className="text-xl font-bold leading-tight text-brand-white">{member.name}</h3>
           {roles.length > 0 && (

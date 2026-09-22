@@ -6,14 +6,8 @@ export function TeamGrid({ subteams }: { subteams: Subteam[] }) {
     <div className="flex flex-col gap-16">
       {subteams.map((subteam) => (
         <div key={subteam.name}>
-          <div className="mb-6 flex flex-wrap items-center gap-3">
-            <div className="flex items-center gap-2.5">
-              <span className="h-px w-6 bg-brand-red" />
-              <span className="text-base font-bold uppercase tracking-widest text-brand-red">
-                {subteam.eyebrow}
-              </span>
-            </div>
-            <h2 className="text-2xl font-black uppercase tracking-tight text-brand-black dark:text-brand-white">
+          <div className="mb-6">
+            <h2 className="text-2xl font-black uppercase tracking-tight text-brand-red">
               {subteam.name}
             </h2>
           </div>
